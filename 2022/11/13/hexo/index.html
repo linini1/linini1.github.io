@@ -16,23 +16,22 @@
   <meta name="author" content="林杰弘">
   <meta name="keywords" content="">
   
-    <meta name="description" content="本篇文章将根据”一生一芯“项目的要求一步一步实现AXI读写过程的RTL（无突发传输的），并进行测试。">
+    <meta name="description" content="简介Markdown 语法的目标是：成为一种适用于网络的书写语言。 因此，Markdown是兼容Html，HTML 是一种发布的格式，Markdown 是一种书写的格式。就这样，Markdown 的格式语法只涵盖纯文本可以涵盖的范围。不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。不需要额外标注这是 HTML 或是 Markdown；只要直接加标签就可以了。写一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="axi总线学习笔记（二）axi总线读RTL实现">
-<meta property="og:url" content="http://example.com/2022/08/28/axi2/index.html">
+<meta property="og:title" content="hexo博客部署&amp;markdown简单语法">
+<meta property="og:url" content="http://example.com/2022/11/13/hexo/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="本篇文章将根据”一生一芯“项目的要求一步一步实现AXI读写过程的RTL（无突发传输的），并进行测试。">
+<meta property="og:description" content="简介Markdown 语法的目标是：成为一种适用于网络的书写语言。 因此，Markdown是兼容Html，HTML 是一种发布的格式，Markdown 是一种书写的格式。就这样，Markdown 的格式语法只涵盖纯文本可以涵盖的范围。不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。不需要额外标注这是 HTML 或是 Markdown；只要直接加标签就可以了。写一">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/banner/4.jpg">
-<meta property="article:published_time" content="2022-08-28T07:34:48.000Z">
-<meta property="article:modified_time" content="2022-08-28T09:44:02.688Z">
+<meta property="article:published_time" content="2022-11-13T06:13:47.000Z">
+<meta property="article:modified_time" content="2022-11-13T06:36:49.717Z">
 <meta property="article:author" content="林杰弘">
+<meta property="article:tag" content="blog-config">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/banner/4.jpg">
   
   
   
-  <title>axi总线学习笔记（二）axi总线读RTL实现 - blog</title>
+  <title>hexo博客部署&amp;markdown简单语法 - blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="axi总线学习笔记（二）axi总线读RTL实现"></span>
+            <span id="subtitle" data-typed-text="hexo博客部署&amp;markdown简单语法"></span>
           
         </div>
 
@@ -208,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-28 15:34" pubdate>
-          2022年8月28日 下午
+        <time datetime="2022-11-13 14:13" pubdate>
+          2022年11月13日 下午
         </time>
       </span>
     
@@ -220,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          893 字
+          707 字
         
       </span>
     
@@ -231,7 +230,7 @@
         
         
         
-          8 分钟
+          6 分钟
         
       </span>
     
@@ -269,51 +268,22 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">axi总线学习笔记（二）axi总线读RTL实现</h1>
+            <h1 style="display: none">hexo博客部署&amp;markdown简单语法</h1>
             
             
               <div class="markdown-body">
                 
-                <pre><code class="hljs">本篇文章将根据”一生一芯“项目的要求一步一步实现AXI读写过程的RTL（无突发传输的），并进行测试。
+                <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><pre><code class="hljs">Markdown 语法的目标是：成为一种适用于网络的书写语言。 因此，Markdown是兼容Html，HTML 是一种发布的格式，Markdown 是一种书写的格式。就这样，Markdown 的格式语法只涵盖纯文本可以涵盖的范围。不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。不需要额外标注这是 HTML 或是 Markdown；只要直接加标签就可以了。写一个Markdown文档，可以将直接使用Markdown语法和Html的标签混合进行使用，因为最后都会转换成Html，但要注意的是，在 HTML 区块标签间的 Markdown 格式语法将不会被处理。
 </code></pre>
-<span id="more"></span>
-<h1 id="实现总线读写"><a href="#实现总线读写" class="headerlink" title="实现总线读写"></a><b>实现总线读写</b></h1><h2 id="实现axi-ctrl的总线读写"><a href="#实现axi-ctrl的总线读写" class="headerlink" title="实现axi_ctrl的总线读写"></a><b>实现axi_ctrl的总线读写</b></h2><ul>
-<li><h3 id="输入输出信号"><a href="#输入输出信号" class="headerlink" title=" 输入输出信号"></a><b> 输入输出信号</b></h3><p>  根据上章文档里给出的通道信号我们可以将其确定下来，部分信号如下图，其中我把信号来源和输入输出分开了，其中前缀m代表是主设备发出的，而s代表是从设备发出的，后缀i代表是输入，o代表是输出，其余四个通道信号也是类似。</p>
-<pre><code class="hljs">  //master
-  output  m_axi_aw_id_o,
-  output  m_axi_aw_valid_o,
-  output  m_axi_aw_addr_o,
-  output  m_axi_aw_len_o,
-  output  m_axi_aw_size_o,
-  output  m_axi_aw_burst_o,   
-  input   m_axi_aw_ready_i,
-
-  //slave 
-  input   s_axi_aw_id_i,
-  input   s_axi_aw_valid_i,
-  input   s_axi_aw_addr_i,
-  input   s_axi_aw_len_i,
-  input   s_axi_aw_size_i,
-  input   s_axi_aw_burst_i,
-  output  s_axi_aw_reay_o,
+<h2 id="常用基本语法"><a href="#常用基本语法" class="headerlink" title="常用基本语法"></a>常用基本语法</h2><pre><code class="hljs">只总结了一些觉得自己常用的上的，不考虑美观（懒人狗头）
+1标题：常用类ATX形式   行首插入1到6个#对应与1到6阶标题，注#后面要有一个空格         eg. ## head
+2字体：Markdown 使用星号（*）和底线（_）作为标记强调字词的符号，你可以随便用你喜欢的样式，唯一的限制是，你用什么符号开启标签，就要用什么符号结束。      eg. **加粗**
+3分割线：可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。     eg. ****    --------
+4引用： 在引用的文字前加 &gt; 即可。               eg. &gt;
+5列表： Markdown 支持有序列表和无序列表。 无序列表使用星号、加号或是减号作为列表标记。有序列表则使用数字接着一个英文句点作为标记。列表可以嵌套，上一级和下一级之间敲三个空格即可
+6代码：Markdown中加入代码块有两种方式： 第一种，只要简单地缩进 4 个空格或是 1 个制表符就可以，第二种单行代码：代码之间分别用一个反引号包起来即可；
 </code></pre>
-</li>
-<li><h3 id="中间信号"><a href="#中间信号" class="headerlink" title=" 中间信号"></a><b> 中间信号</b></h3><p>  中间信号我们先考虑握手信号和有依赖关系的信号，具体如下</p>
-<pre><code class="hljs">  //handshake
-  wire  aw_hs   =   axi_aw_ready &amp;  axi_aw_valid;
-  wire  w_hs    =   axi_w_ready  &amp;  axi_w_valid;
-  wire  b_hs    =   axi_b_ready  &amp;  axi_b_valid;
-  wire  ar_hs   =   axi_ar_ready  &amp;  axi_ar_valid;
-  wire  r_hs    =   axi_r_ready  &amp;  axi_r_valid;
-
-  //done
-  wire  w_done  = w_hs  &amp;   axi_w_last; 
-  wire  r_done  = r_hs  &amp;&amp;  axi_r_last; 
-</code></pre>
-<p>  其中w_done根据官方文档的依赖关系我们知道一次写完成依赖于写数据通道的完成，而代表一次完成写数据的完成又是由w_last信号代替的<br>  &#x2F;&#x2F;未完待续，晚上继续写</p>
-</li>
-</ul>
-
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3>
                 
               </div>
             
@@ -321,6 +291,13 @@
             <div>
               <div class="post-metas my-3">
   
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/blog-config/">#blog-config</a>
+      
+    </div>
   
 </div>
 
@@ -330,8 +307,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>axi总线学习笔记（二）axi总线读RTL实现</div>
-      <div>http://example.com/2022/08/28/axi2/</div>
+      <div>hexo博客部署&amp;markdown简单语法</div>
+      <div>http://example.com/2022/11/13/hexo/</div>
     </div>
     <div class="license-meta">
       
@@ -343,7 +320,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年8月28日</div>
+          <div>2022年11月13日</div>
         </div>
       
       
@@ -373,18 +350,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/11/13/hexo/" title="hexo博客部署&amp;markdown简单语法">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">hexo博客部署&amp;markdown简单语法</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/17/axi/" title="axi总线学习笔记（一）基本知识介绍">
-                        <span class="hidden-mobile">axi总线学习笔记（一）基本知识介绍</span>
+                      <a href="/2022/08/28/axi2/" title="axi总线学习笔记（二）axi总线读RTL实现">
+                        <span class="hidden-mobile">axi总线学习笔记（二）axi总线读RTL实现</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
