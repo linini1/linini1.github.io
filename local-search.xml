@@ -4,11 +4,91 @@
   
   
   <entry>
+    <title>blog-music</title>
+    <link href="/2022/11/15/blog-music-1/"/>
+    <url>/2022/11/15/blog-music-1/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>blog-music</title>
+    <link href="/2022/11/15/blog-music/"/>
+    <url>/2022/11/15/blog-music/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>C语言指针学习（入门版）</title>
+    <link href="/2022/11/15/pointer/"/>
+    <url>/2022/11/15/pointer/</url>
+    
+    <content type="html"><![CDATA[<p> C语言指针知识学习。本人菜鸡有讲的不明白或错的请批评指正！</p><span id="more"></span><h3 id="指针定义"><a href="#指针定义" class="headerlink" title="指针定义"></a>指针定义</h3><pre><code class="hljs">int a=5;int *p          //定义分配了空间p = &amp;a;         //赋值printf(&quot;p = %d\n&quot;,p);   //输出的是a的地址《==》int *p = &amp;a;    //定义和赋值一起</code></pre><p>这里是先定义了一个<strong>整型的指针类型</strong>的变量p,p是变量名，<strong>p的值（或者说叫p存放的内容）是a的地址</strong>,p的大小也是int类型的大小。</p><blockquote><p>对计算机的详细存储过程：</p><ol><li>先给a分配4字节大小，然后把5这个值存进去分配的内存空间里，</li><li>然后给p分配4字节大小的空间，取得a的地址后放入分配给p的地址里,<strong>这里的地址也会转换为二进制存存入按顺序存入分配的四字节</strong></li><li>所以直接打印p，则打印的实际对应的是a的地址，<br><strong>即int*存放的是int类型的地址</strong></li></ol></blockquote><p>再往下定义一个</p><pre><code class="hljs">int **s;s = &amp;p;</code></pre><blockquote><p>根据上面的说明这里的变量是s(变量名)，数据类型为int **, 根据赋值我们可以知道s分配的内存空间里存的值是p的地址<br>总结一下<br>*<em>s放的是p的地址，</em>s里可以看成放的是p地址空间存放的地址，即a的地址（根据上述的p &#x3D; &amp;a;) 即*p &#x3D; &amp;a;<br>则 *<em>s可以看成</em>（&amp;a),a地址存放的值，即 **s &#x3D; a; </p></blockquote><p> <strong>参考文章：</strong><br> <a href="https://zhuanlan.zhihu.com/p/101934152">C语言重点——指针篇（一篇让你完全搞懂指针） - 一直流浪的文章 - 知乎</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>C语言</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>C语言</tag>
+      
+      <tag>基础知识</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>C语言常见库函数实现</title>
+    <link href="/2022/11/15/libc/"/>
+    <url>/2022/11/15/libc/</url>
+    
+    <content type="html"><![CDATA[<p>本文将尝试实现几个基本的C语言库函数</p><span id="more"></span><h1 id="字符类处理函数"><a href="#字符类处理函数" class="headerlink" title="字符类处理函数"></a>字符类处理函数</h1><h3 id="strlen"><a href="#strlen" class="headerlink" title="strlen"></a>strlen</h3><blockquote><p><strong>手册定义:</strong> size_t strlen(const char *s)<br><strong>描述：</strong>calculate the length of a string pointed to by s,excluding the terminating null byte (‘\0’).<br><strong>返回值：</strong>return the number of bytes in the string pointed to by s.</p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>C语言</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>C语言</tag>
+      
+      <tag>代码系列</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>PA2笔记</title>
     <link href="/2022/11/13/pa2/"/>
     <url>/2022/11/13/pa2/</url>
     
-    <content type="html"><![CDATA[<h1 id="PA2-简单复杂的机器-amp-RTFM"><a href="#PA2-简单复杂的机器-amp-RTFM" class="headerlink" title="PA2-简单复杂的机器&amp;RTFM"></a>PA2-简单复杂的机器&amp;RTFM</h1><h2 id="pa2-1-不停的计算机"><a href="#pa2-1-不停的计算机" class="headerlink" title="pa2.1-不停的计算机"></a>pa2.1-不停的计算机</h2><p>再次强化计算机是个状态机   取指-&gt;执行指令-&gt;更新pc</p><h3 id="Q1-理解YEMU如何执行"><a href="#Q1-理解YEMU如何执行" class="headerlink" title="Q1. 理解YEMU如何执行"></a>Q1. 理解YEMU如何执行</h3><ol><li><p>位域结构</p><p> struct {<br>  uint8_t rs : 2, rt : 2, op : 4;<br> } rtype;</p></li></ol><p>所谓“位域”是把一个字节中的二进位划分为几个不同的区域，并说明每个区域的位数。每个域有一个域名，允许在程序中按域名进行操作。 YUMU这里的把rtype的一字节分为多个位域，可以单独访问如rtype.rs表示该字节的低两位<br>有两个注意的点<br><strong>1. 一个位域必须存储在同一个字节中，不能跨两个字节。如一个字节所剩空间不够存放另一位域时，应从下一单元起存放该位域。也可以有意使某位域从下一单元开始。</strong><br><strong>2. 由于位域不允许跨两个字节，因此位域的长度不能大于一个字节的长度，也就是说不能超过8位二进位</strong></p><pre><code class="hljs">    struct   bs      &#123;      unsigned   a:4      unsigned   :0   /*空域*/      unsigned   b:4   /*从下一单元开始存放*/      unsigned   c:4      &#125; </code></pre><ol start="2"><li>联合体</li></ol><p>联合成员则共享同一个内存位置。也就是说，联合中的所有成员都是从相同的内存地址开始,实际大小是最大数据类型的倍数;</p><pre><code class="hljs">union Data &#123;int i; double x;string str;&#125;</code></pre><p><img src="/../img/1114/union.png"></p><p>所以YEMU是每执行一条指令，先定义了一条指令的联合体分配内存，然后从对应的pc内存里取出指令，根据该条指令的类型的前四位进行指令类型译码，然后根据对应类型的执行，然后使pc指向下一条指令。其中DECODE_R&#x2F;DECODE_M是对于寄存器和访存的宏函数，用于寄存器和内存的读.</p><h3 id="Q2-实现指令"><a href="#Q2-实现指令" class="headerlink" title="Q2. 实现指令"></a>Q2. 实现指令</h3><h4 id="API了解（RISCV64"><a href="#API了解（RISCV64" class="headerlink" title="API了解（RISCV64)"></a>API了解（RISCV64)</h4><ol><li>word_t -&gt; uint64_t</li><li>sword_t-&gt; int64_t</li><li>char *FMT_WORD -&gt; %0x%016lx”</li><li>word_t RESET_VECTOR -&gt; pc初始</li><li>CPU_state{wort_t pc} -&gt;已经定义一个cpu</li><li>ISADecodeInfo-&gt;isa译码结构体</li><li>Decode 译码信息 pc , dnpc, snpc , ISADecode, </li><li>int isa_mmu_check(vaddr_t vaddr, int len, int type); 检查当前系统状态下对内存区间为[vaddr, vaddr + len), 类型为type的访问是否需要经过地址转换. </li><li>paddr_t isa_mmu_translate(vaddr_t vaddr, int len, int type); 对内存区间为[vaddr, vaddr + len), 类型为type的内存访问进行地址转换.</li><li>vaddr_t isa_raise_intr(word_t NO, vaddr_t epc); 抛出一个号码为NO的异常, 其中epc为触发异常的指令PC, 返回异常处理的出口地址.</li><li>word_t isa_query_intr(); 查询当前是否有未处理的中断, 若有则返回中断号码, 否则返回INTR_EMPTY</li></ol><h4 id="一些宏函数"><a href="#一些宏函数" class="headerlink" title="一些宏函数"></a>一些宏函数</h4><ol><li>concct -&gt; 连接两个参数 如 concat(x,y) &#x3D;&#x3D; xy;</li><li>INSTPAT -&gt; </li><li>INSTPAT_INST -&gt;获得指令</li><li>INSTPAT_MATCH指匹配</li><li>decode_operand-&gt;译码</li></ol><h4 id="nemu一条指令的执行"><a href="#nemu一条指令的执行" class="headerlink" title="nemu一条指令的执行"></a>nemu一条指令的执行</h4><ol><li>取指 <ol><li>入口：exec_once()-&gt;isa_exec_once(Decode *s)</li><li>操作：inst_fetch(vaddr_t pc,int len)-&gt;vaddr_ifetch(addr,len)-&gt;paddr_read()-&gt;pmem_read()-&gt;host_read();</li><li>s-&gt;snpc +&#x3D; 4;</li></ol></li><li>译码<ol><li>入口：decode_exec(s);</li><li>操作：调用宏函数模式匹配</li></ol></li><li>执行<ol><li>译码后的执行函数进行指令执行</li></ol></li><li>更新pc<ol><li>s-&gt;pc &#x3D; s-&gt;dnpc;</li><li>s-&gt;dnpc(动态) s-&gt;snpc(静态)</li></ol></li></ol><h4 id="实现指令"><a href="#实现指令" class="headerlink" title="实现指令"></a>实现指令</h4><ol><li>入口：inst.c</li><li>宏R()寄存器，Mr,Mw,访存 ，src1R()取寄存器值一根据指令集设计，BITS()-&gt;[n:m], SEXT()-&gt;有符号扩展，</li><li>值得注意的是J型指令的立即数，因为要扩展所以可以先分别把分开的位先扩展移位后进行按位或运算，有符号比较的时候可以先把变量强制进行有符号转换，跳转指令是动态的所以注意要变得pc应该是什么。</li></ol><h2 id="pa2-2-运行时环境-amp-基础设施"><a href="#pa2-2-运行时环境-amp-基础设施" class="headerlink" title="pa2.2-运行时环境&amp;基础设施"></a>pa2.2-运行时环境&amp;基础设施</h2><h3 id="运行时环境AM"><a href="#运行时环境AM" class="headerlink" title="运行时环境AM"></a>运行时环境AM</h3><h4 id="最简单的运行时环境"><a href="#最简单的运行时环境" class="headerlink" title="最简单的运行时环境"></a>最简单的运行时环境</h4><p>有内存, 有结束运行的方式, 加上实现正确的指令。nemu里pmem物理内存， 结束方式 nemu_trap-&gt;NEMUTRAP-&gt;改变nemu_state使其停下来,isa;</p><h4 id="将运行时环境封装成库函数"><a href="#将运行时环境封装成库函数" class="headerlink" title="将运行时环境封装成库函数"></a>将运行时环境封装成库函数</h4><p>行时环境的一种普遍的存在方式: 库. 通过库, 运行程序所需要的公共要素被抽象成API, 不同的架构只需要实现这些API。</p><h4 id="AM入门"><a href="#AM入门" class="headerlink" title="AM入门"></a>AM入门</h4><pre><code class="hljs">AM = TRM + IOE + CTE + VME + MPE</code></pre><ol><li>NEMU-trm<br> putch()&#x2F;&#x2F;输出<br> halt()&#x2F;&#x2F;结束<br> _trm_init()&#x2F;&#x2F;初始化<br> Area heap;&#x2F;&#x2F;堆区</li></ol>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>PA2学习笔记</p><span id="more"></span><h1 id="PA2-简单复杂的机器-amp-RTFM"><a href="#PA2-简单复杂的机器-amp-RTFM" class="headerlink" title="PA2-简单复杂的机器&amp;RTFM"></a>PA2-简单复杂的机器&amp;RTFM</h1><h2 id="pa2-1-不停的计算机"><a href="#pa2-1-不停的计算机" class="headerlink" title="pa2.1-不停的计算机"></a>pa2.1-不停的计算机</h2><p>再次强化计算机是个状态机   取指-&gt;执行指令-&gt;更新pc</p><h3 id="Q1-理解YEMU如何执行"><a href="#Q1-理解YEMU如何执行" class="headerlink" title="Q1. 理解YEMU如何执行"></a>Q1. 理解YEMU如何执行</h3><ol><li><p>位域结构</p><p> struct {<br>  uint8_t rs : 2, rt : 2, op : 4;<br> } rtype;</p></li></ol><p>所谓“位域”是把一个字节中的二进位划分为几个不同的区域，并说明每个区域的位数。每个域有一个域名，允许在程序中按域名进行操作。 YUMU这里的把rtype的一字节分为多个位域，可以单独访问如rtype.rs表示该字节的低两位<br>有两个注意的点<br><strong>1. 一个位域必须存储在同一个字节中，不能跨两个字节。如一个字节所剩空间不够存放另一位域时，应从下一单元起存放该位域。也可以有意使某位域从下一单元开始。</strong><br><strong>2. 由于位域不允许跨两个字节，因此位域的长度不能大于一个字节的长度，也就是说不能超过8位二进位</strong></p><pre><code class="hljs">    struct   bs      &#123;      unsigned   a:4      unsigned   :0   /*空域*/      unsigned   b:4   /*从下一单元开始存放*/      unsigned   c:4      &#125; </code></pre><ol start="2"><li>联合体</li></ol><p>联合成员则共享同一个内存位置。也就是说，联合中的所有成员都是从相同的内存地址开始,实际大小是最大数据类型的倍数;</p><pre><code class="hljs">union Data &#123;int i; double x;string str;&#125;</code></pre><p><img src="/../img/1114/union.png"></p><p>所以YEMU是每执行一条指令，先定义了一条指令的联合体分配内存，然后从对应的pc内存里取出指令，根据该条指令的类型的前四位进行指令类型译码，然后根据对应类型的执行，然后使pc指向下一条指令。其中DECODE_R&#x2F;DECODE_M是对于寄存器和访存的宏函数，用于寄存器和内存的读.</p><h3 id="Q2-实现指令"><a href="#Q2-实现指令" class="headerlink" title="Q2. 实现指令"></a>Q2. 实现指令</h3><h4 id="API了解（RISCV64"><a href="#API了解（RISCV64" class="headerlink" title="API了解（RISCV64)"></a>API了解（RISCV64)</h4><ol><li>word_t -&gt; uint64_t</li><li>sword_t-&gt; int64_t</li><li>char *FMT_WORD -&gt; %0x%016lx”</li><li>word_t RESET_VECTOR -&gt; pc初始</li><li>CPU_state{wort_t pc} -&gt;已经定义一个cpu</li><li>ISADecodeInfo-&gt;isa译码结构体</li><li>Decode 译码信息 pc , dnpc, snpc , ISADecode, </li><li>int isa_mmu_check(vaddr_t vaddr, int len, int type); 检查当前系统状态下对内存区间为[vaddr, vaddr + len), 类型为type的访问是否需要经过地址转换. </li><li>paddr_t isa_mmu_translate(vaddr_t vaddr, int len, int type); 对内存区间为[vaddr, vaddr + len), 类型为type的内存访问进行地址转换.</li><li>vaddr_t isa_raise_intr(word_t NO, vaddr_t epc); 抛出一个号码为NO的异常, 其中epc为触发异常的指令PC, 返回异常处理的出口地址.</li><li>word_t isa_query_intr(); 查询当前是否有未处理的中断, 若有则返回中断号码, 否则返回INTR_EMPTY</li></ol><h4 id="一些宏函数"><a href="#一些宏函数" class="headerlink" title="一些宏函数"></a>一些宏函数</h4><ol><li>concct -&gt; 连接两个参数 如 concat(x,y) &#x3D;&#x3D; xy;</li><li>INSTPAT -&gt; </li><li>INSTPAT_INST -&gt;获得指令</li><li>INSTPAT_MATCH指匹配</li><li>decode_operand-&gt;译码</li></ol><h4 id="nemu一条指令的执行"><a href="#nemu一条指令的执行" class="headerlink" title="nemu一条指令的执行"></a>nemu一条指令的执行</h4><ol><li>取指 <ol><li>入口：exec_once()-&gt;isa_exec_once(Decode *s)</li><li>操作：inst_fetch(vaddr_t pc,int len)-&gt;vaddr_ifetch(addr,len)-&gt;paddr_read()-&gt;pmem_read()-&gt;host_read();</li><li>s-&gt;snpc +&#x3D; 4;</li></ol></li><li>译码<ol><li>入口：decode_exec(s);</li><li>操作：调用宏函数模式匹配</li></ol></li><li>执行<ol><li>译码后的执行函数进行指令执行</li></ol></li><li>更新pc<ol><li>s-&gt;pc &#x3D; s-&gt;dnpc;</li><li>s-&gt;dnpc(动态) s-&gt;snpc(静态)</li></ol></li></ol><h4 id="实现指令"><a href="#实现指令" class="headerlink" title="实现指令"></a>实现指令</h4><ol><li>入口：inst.c</li><li>宏R()寄存器，Mr,Mw,访存 ，src1R()取寄存器值一根据指令集设计，BITS()-&gt;[n:m], SEXT()-&gt;有符号扩展，</li><li>值得注意的是J型指令的立即数，因为要扩展所以可以先分别把分开的位先扩展移位后进行按位或运算，有符号比较的时候可以先把变量强制进行有符号转换，跳转指令是动态的所以注意要变得pc应该是什么。</li></ol><h2 id="pa2-2-运行时环境-amp-基础设施"><a href="#pa2-2-运行时环境-amp-基础设施" class="headerlink" title="pa2.2-运行时环境&amp;基础设施"></a>pa2.2-运行时环境&amp;基础设施</h2><h3 id="运行时环境AM"><a href="#运行时环境AM" class="headerlink" title="运行时环境AM"></a>运行时环境AM</h3><h4 id="最简单的运行时环境"><a href="#最简单的运行时环境" class="headerlink" title="最简单的运行时环境"></a>最简单的运行时环境</h4><p>有内存, 有结束运行的方式, 加上实现正确的指令。nemu里pmem物理内存， 结束方式 nemu_trap-&gt;NEMUTRAP-&gt;改变nemu_state使其停下来,isa;</p><h4 id="将运行时环境封装成库函数"><a href="#将运行时环境封装成库函数" class="headerlink" title="将运行时环境封装成库函数"></a>将运行时环境封装成库函数</h4><p>行时环境的一种普遍的存在方式: 库. 通过库, 运行程序所需要的公共要素被抽象成API, 不同的架构只需要实现这些API。</p><h4 id="AM入门"><a href="#AM入门" class="headerlink" title="AM入门"></a>AM入门</h4><pre><code class="hljs">AM = TRM + IOE + CTE + VME + MPE</code></pre><ol><li><p><strong>TRM</strong><br>putch()&#x2F;&#x2F;输出<br>halt()&#x2F;&#x2F;结束-&gt; nemu_trap()-&gt;asm volatike(内联汇编)-&gt;ebreak;<br>_trm_init()&#x2F;&#x2F;初始化<br>Area heap;&#x2F;&#x2F;堆区</p></li><li><p><strong>Q.通过批处理模式运行NEMU</strong><br>肯定是有个开关的-&gt;如果是通过参数控制肯定有留下读取参数接口-&gt;init_monitor()-&gt;parse_args()-&gt;batch;<br>所以找到对应的编译script-&gt;nemu-&gt;native.mk-&gt;运行参数要加b</p></li><li><p><strong>常用的C库函数</strong><br>见C语言基础知识目录</p></li></ol>]]></content>
     
     
     <categories>
@@ -88,7 +168,7 @@
     <link href="/2022/07/25/post/"/>
     <url>/2022/07/25/post/</url>
     
-    <content type="html"><![CDATA[<p>这是个兼容作为歌单和简历及废话的小破博客</p><span id="more"></span><h1 id="第一篇博客发个疯"><a href="#第一篇博客发个疯" class="headerlink" title="第一篇博客发个疯"></a>第一篇博客发个疯</h1><p>立个flag，一个月至少更新一篇博客（手动狗头）</p><h3 id="放个歌单激励一下自己"><a href="#放个歌单激励一下自己" class="headerlink" title="放个歌单激励一下自己"></a>放个歌单激励一下自己</h3><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=530 height=86 src="//music.163.com/outchain/player?type=2&id=471411071&auto=1&height=66"></iframe>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>这是个兼容作为歌单和简历及废话的小破博客</p><span id="more"></span><h1 id="第一篇博客发个疯"><a href="#第一篇博客发个疯" class="headerlink" title="第一篇博客发个疯"></a>第一篇博客发个疯</h1><p>立个flag，一个月至少更新一篇博客（手动狗头）</p><h3 id="放个歌单激励一下自己"><a href="#放个歌单激励一下自己" class="headerlink" title="放个歌单激励一下自己"></a>放个歌单激励一下自己</h3><script>console.error("Error: [hexo-tag-aplayer] Unrecognized tag argument(2): https://link.zhihu.com/?target=http%3A//home.ustc.edu.cn/~mmmwhy/%25d6%25dc%25bd%25dc%25c2%25d7%2520-%2520%25cb%25fd%25b5%25c4%25bd%25de%25c3%25ab.mp3");</script>]]></content>
     
     
     <categories>
