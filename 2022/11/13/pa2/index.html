@@ -68,6 +68,10 @@
 
 
 
+  
+<link rel="stylesheet" href="/js/APlayer/dist/APlayer.min.css">
+
+
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
@@ -98,7 +102,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>林的博客</strong>
+      <strong>livehouse</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -303,7 +307,7 @@ double x;
 string str;
 &#125;
 </code></pre>
-<p><img src="/../img/1114/union.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/.com//img/1114/union.png" srcset="/img/loading.gif" lazyload></p>
 <p>所以YEMU是每执行一条指令，先定义了一条指令的联合体分配内存，然后从对应的pc内存里取出指令，根据该条指令的类型的前四位进行指令类型译码，然后根据对应类型的执行，然后使pc指向下一条指令。其中DECODE_R&#x2F;DECODE_M是对于寄存器和访存的宏函数，用于寄存器和内存的读.</p>
 <h3 id="Q2-实现指令"><a href="#Q2-实现指令" class="headerlink" title="Q2. 实现指令"></a>Q2. 实现指令</h3><h4 id="API了解（RISCV64"><a href="#API了解（RISCV64" class="headerlink" title="API了解（RISCV64)"></a>API了解（RISCV64)</h4><ol>
 <li>word_t -&gt; uint64_t</li>
@@ -559,6 +563,12 @@ string str;
     
 
     
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+           <!--aplayer--> <div id="aplayer">sssss</div> 
+        </div>
+      </div>
+    
   </main>
 
   <footer>
@@ -689,6 +699,11 @@ string str;
   <script  src="/js/local-search.js" ></script>
 
 
+
+
+  
+<script src="/js/useaplayer.js"></script>
+<script src="/js/APlayer/dist/APlayer.min.js"></script>
 
 
 

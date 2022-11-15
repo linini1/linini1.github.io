@@ -66,6 +66,10 @@
 
 
 
+  
+<link rel="stylesheet" href="/js/APlayer/dist/APlayer.min.css">
+
+
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
@@ -96,7 +100,7 @@
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
-      <strong>林的博客</strong>
+      <strong>livehouse</strong>
     </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
@@ -278,7 +282,7 @@
 </code></pre>
 <span id="more"></span>
 
-<h2 id="AMBA基本介绍"><a href="#AMBA基本介绍" class="headerlink" title="AMBA基本介绍"></a><b>AMBA基本介绍</b></h2><p>AXI总线协议是AMBA（Advanced Microcontroller Bus Architecture）总线中的一种，AMBA根据官方文档的定义(is an open-standard, on-chipinterconnect specification for the connection and management of functional blocks in system-on-achip (SoC) designs.)是一种将链接和管理外部功能模块和片上系统（soc)的一种接入规范，以下官方文档中的一个soc结构图解释了AMBA总线的应用<br><img src="/../img/AXI-learning/AMBA.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="AMBA基本介绍"><a href="#AMBA基本介绍" class="headerlink" title="AMBA基本介绍"></a><b>AMBA基本介绍</b></h2><p>AXI总线协议是AMBA（Advanced Microcontroller Bus Architecture）总线中的一种，AMBA根据官方文档的定义(is an open-standard, on-chipinterconnect specification for the connection and management of functional blocks in system-on-achip (SoC) designs.)是一种将链接和管理外部功能模块和片上系统（soc)的一种接入规范，以下官方文档中的一个soc结构图解释了AMBA总线的应用<br><img src="/.com//img/AXI-learning/AMBA.png" srcset="/img/loading.gif" lazyload></p>
 <p>AMBA目前已经已经发展到了第五代，包含了APB，AHB,AXI,ACE,CHI，ATB等标准分别应用于不同的需求场景中，其中本次学习的AXI（Advanced eXtensible Interface ）主要是面向高性能，高宽带，低延迟的一个片内总线议。</p>
 <h2 id="AXI基本介绍"><a href="#AXI基本介绍" class="headerlink" title="AXI基本介绍"></a><b>AXI基本介绍</b></h2><p>根据官方文档定义AXI is an interface specification that defines the interface of IP blocks, rather than the interconnect itself(定义翻译过来AXI是一种接口规范，它定义了IP块的接口，而不是互连本身，定义有点绕，后面文档也有进一步解释The AXI protocol is a point-to-point specification, not a bus specification. Therefore,it describes only the signals and timing between interfaces.{AXI协议是一个点对点的规范，而不是一个总线规范。因此它只描述接口之间的信号和时间})，AXI只有两方端口一个是manager（上一代文档里又叫master），一个是subordinate(上一代文档里又叫slave)，AXI有着以下的优点：</p>
 <ul>
@@ -292,18 +296,18 @@
 <p>  以下的官方文档的图展现了axi的应用于SOC系统中，这个图也表现了axi是点对点的连接manager和subordinate，一个manage interface连接一个subordinate interface</p>
 </li>
 </ul>
-<p> <img src="/../img/AXI-learning/AXI_interface.png" srcset="/img/loading.gif" lazyload></p>
+<p> <img src="/.com//img/AXI-learning/AXI_interface.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="AXI通道基本介绍"><a href="#AXI通道基本介绍" class="headerlink" title="AXI通道基本介绍"></a><b>AXI通道基本介绍</b></h2><p>AXI规范描述了两个接口之间的点对点协议：一个管理器和一个从属接口。下方官方文档图简要显示了每个AXI接口用于通信的五个主要通道通信。</p>
-<p><img src="/../img/AXI-learning/AXI_channel.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/.com//img/AXI-learning/AXI_channel.png" srcset="/img/loading.gif" lazyload></p>
 <p>根据上面的图首先可以分为写操作和读操作</p>
 <h3 id="写操作传输过程"><a href="#写操作传输过程" class="headerlink" title="写操作传输过程"></a><b>写操作传输过程</b></h3><ul>
 <li><h3 id="写地址通道AW-Write-Adress"><a href="#写地址通道AW-Write-Adress" class="headerlink" title="写地址通道AW(Write Adress)"></a>写地址通道AW(Write Adress)</h3></li>
 <li><h3 id="写数据通道W（Write-data"><a href="#写数据通道W（Write-data" class="headerlink" title="写数据通道W（Write data)"></a>写数据通道W（Write data)</h3></li>
-<li><h3 id="写回应通道B（Write-Response"><a href="#写回应通道B（Write-Response" class="headerlink" title="写回应通道B（Write Response)"></a>写回应通道B（Write Response)</h3><img src="/../img/AXI-learning/Write_channel.png" srcset="/img/loading.gif" lazyload></li>
+<li><h3 id="写回应通道B（Write-Response"><a href="#写回应通道B（Write-Response" class="headerlink" title="写回应通道B（Write Response)"></a>写回应通道B（Write Response)</h3><img src="/.com//img/AXI-learning/Write_channel.png" srcset="/img/loading.gif" lazyload></li>
 </ul>
 <h3 id="读操作传输过程"><a href="#读操作传输过程" class="headerlink" title="读操作传输过程"></a><b>读操作传输过程</b></h3><ul>
 <li><h3 id="读地址通道AR-Read-Adress"><a href="#读地址通道AR-Read-Adress" class="headerlink" title="读地址通道AR(Read Adress)"></a>读地址通道AR(Read Adress)</h3></li>
-<li><h3 id="写数据通道R（Read-data"><a href="#写数据通道R（Read-data" class="headerlink" title="写数据通道R（Read data)"></a>写数据通道R（Read data)</h3><img src="/../img/AXI-learning/Read_channel.png" srcset="/img/loading.gif" lazyload></li>
+<li><h3 id="写数据通道R（Read-data"><a href="#写数据通道R（Read-data" class="headerlink" title="写数据通道R（Read data)"></a>写数据通道R（Read data)</h3><img src="/.com//img/AXI-learning/Read_channel.png" srcset="/img/loading.gif" lazyload></li>
 </ul>
 <p>对于地址通道传输过程中携带了地址及一些控制信息，从上图看出两个地址通道都是由manager传输到subordinate，而对于数据通道对于写数据通道是由manager传输到subordinate而读数据则由subordinate传输到manager，而当写传输完成后由subordinate通过写响应通道传输告知manager本次传输完成。而这种分离的地址和数据通道可以使接口的带宽最大化，同时读和写之间的没有时间关系，意味着读可以同时写</p>
 <ul>
@@ -311,21 +315,21 @@
 </ul>
 <h2 id="AXI传输过程"><a href="#AXI传输过程" class="headerlink" title="AXI传输过程"></a><b>AXI传输过程</b></h2><ul>
 <li><h2 id="时钟和复位信号-ACLK-amp-ARESETn"><a href="#时钟和复位信号-ACLK-amp-ARESETn" class="headerlink" title="时钟和复位信号(ACLK &amp; ARESETn) "></a><b>时钟和复位信号(ACLK &amp; ARESETn) </b></h2><p>  所有输入信号都在时钟ACLK上升沿被采样，所有输出信号的变化只能在ACLK上升沿后<br>  而复位信号低电平复位，再说明下可以<b>异步复位</b>，不然默认下是在时钟上升沿<b>同步复位</b>复位时接口时，manager的ARVALID,AWVALID,WVALID保持低电平，subordinate的RVALID,BVALID保持低电平，其他根据设计来，<b>最早可以拉高的点在复位后一个周期的上升沿，如下图</b></p>
-<p>  <img src="/../img/AXI-learning/ARESETn.png" srcset="/img/loading.gif" lazyload></p>
+<p>  <img src="/.com//img/AXI-learning/ARESETn.png" srcset="/img/loading.gif" lazyload></p>
 </li>
 <li><h2 id="握手机制（Handshake"><a href="#握手机制（Handshake" class="headerlink" title="握手机制（Handshake)"></a><b>握手机制（Handshake)</b></h2><p>  五个通道都有用到相同的VALID&#x2F;READY的握手信号来进行传输地址，数据和控制信息。这种双向的控制机制意味着主机和从机都可以控制信息在双方之间的流动速度。源产生方产生VALID信号表明目前地址数据和控制信号可用，目的方产生READY信号去表明当前可以接收信息。而当同时VALID和READY同时拉高（VALID &amp; READY）则表示握手成功。<br><br>  <b>注:主从接口之间的输入输出信号间不能有组合路径。</b></p>
 <p>  三种可能的握手过程<br></p>
 <ul>
-<li><h3 id="VALID信号先拉高"><a href="#VALID信号先拉高" class="headerlink" title="VALID信号先拉高"></a><b>VALID信号先拉高<br></b></h3><p>  <img src="/../img/AXI-learning/handshake_v_first.png" srcset="/img/loading.gif" lazyload></p>
+<li><h3 id="VALID信号先拉高"><a href="#VALID信号先拉高" class="headerlink" title="VALID信号先拉高"></a><b>VALID信号先拉高<br></b></h3><p>  <img src="/.com//img/AXI-learning/handshake_v_first.png" srcset="/img/loading.gif" lazyload></p>
 </li>
-<li><h3 id="READY信号先拉高"><a href="#READY信号先拉高" class="headerlink" title="READY信号先拉高"></a><b>READY信号先拉高<br></b></h3><p>  <img src="/../img/AXI-learning/handshake_r_first.png" srcset="/img/loading.gif" lazyload></p>
+<li><h3 id="READY信号先拉高"><a href="#READY信号先拉高" class="headerlink" title="READY信号先拉高"></a><b>READY信号先拉高<br></b></h3><p>  <img src="/.com//img/AXI-learning/handshake_r_first.png" srcset="/img/loading.gif" lazyload></p>
 </li>
-<li><h3 id="READY和VALID同时拉高"><a href="#READY和VALID同时拉高" class="headerlink" title="READY和VALID同时拉高"></a><b>READY和VALID同时拉高<br></b></h3><p>  <img src="/../img/AXI-learning/handshake_r_v.png" srcset="/img/loading.gif" lazyload></p>
+<li><h3 id="READY和VALID同时拉高"><a href="#READY和VALID同时拉高" class="headerlink" title="READY和VALID同时拉高"></a><b>READY和VALID同时拉高<br></b></h3><p>  <img src="/.com//img/AXI-learning/handshake_r_v.png" srcset="/img/loading.gif" lazyload></p>
 </li>
 </ul>
 <p>  可以看出不管哪个信号先到都是直到T3两个信号都拉高后的一个周期后的上升沿才开始进行传输如果valid先拉高则是先把数据地址控制信息已经准备好要一直缓存保持数据稳定到传输的时刻（不允许释放或改变），即一旦VALID有效，源端必须等待握手发生，即在保持VALID不变的情况下，等待目的端的READY信号有效。如果先让ready信号拉高则当valid一到则下个周期上升沿就要进行传输，数据只需要保持一个周期的稳定,目的端可以在自身READY信号无效的情况下，等待源端的VALID信号有效，这一条规则和上一条规则必须同时遵守，则可能造成死锁等待，同时，在VALID有效前，即使READY已经有效，也可以再次令READY无效。当两个信号同时拉高，则自然等下个周期的上升沿开始信号传输</p>
 </li>
-<li><h2 id="握手信号（Handshake-signal"><a href="#握手信号（Handshake-signal" class="headerlink" title="握手信号（Handshake signal)"></a><b>握手信号（Handshake signal)</b></h2><p>  <img src="/../img/AXI-learning/handshake_signal.png" srcset="/img/loading.gif" lazyload></p>
+<li><h2 id="握手信号（Handshake-signal"><a href="#握手信号（Handshake-signal" class="headerlink" title="握手信号（Handshake signal)"></a><b>握手信号（Handshake signal)</b></h2><p>  <img src="/.com//img/AXI-learning/handshake_signal.png" srcset="/img/loading.gif" lazyload></p>
 <ul>
 <li><h3 id="写地址通道（AWVALID-AWREADY）"><a href="#写地址通道（AWVALID-AWREADY）" class="headerlink" title="写地址通道（AWVALID AWREADY）"></a>写地址通道（AWVALID AWREADY）</h3><p>  AWVALID<b>仅当输出有效的地址和控制信息时才能拉高</b>,在从设备的AWREADY信号有效后的第一个时钟上升沿，主设备的AWVALID信号必须保持有效.同时AWREADY信号的默认状态可以为高也可以为低电平，规范推荐默认状态为高电平。当该信号为高电平时，意味着从设备一定可以接受任何有效的地址。<br><br>  注：<b> 规范不推荐AWREADY信号默认为低电平是因为这会强制使传输周期拉长到至少两个时钟周期，一个周期用于使能AWVALID信号，另一个周期则用于使能AWREADY信号。</b></p>
 </li>
@@ -348,52 +352,52 @@
 <h4 id="读传输依赖-Read-transaction-dependencies-："><a href="#读传输依赖-Read-transaction-dependencies-：" class="headerlink" title="读传输依赖(Read transaction dependencies)："></a>读传输依赖(Read transaction dependencies)：</h4><pre><code class="hljs"> - VALID发出方要先使能VALID信号才能开始等待READY信号;而READY发出方·不必等待VALID有效，就可以发出READY信号，也可以等VALID信号发出后再发出，且读数据通道的VALID信号不能保持常态有效，
     如下图的依赖关系图，其中单箭头指向的表示不需要在意始端的先后，双向箭头指向的信号表示必须等待始端使能后才能进行使能
 </code></pre>
-<p> <img src="/../img/AXI-learning/depend_r.png" srcset="/img/loading.gif" lazyload alt="读依赖关系"></p>
+<p> <img src="/.com//img/AXI-learning/depend_r.png" srcset="/img/loading.gif" lazyload alt="读依赖关系"></p>
 <h4 id="写依赖关系-AXI3（Write-transaction-dependencies"><a href="#写依赖关系-AXI3（Write-transaction-dependencies" class="headerlink" title="写依赖关系-AXI3（Write transaction dependencies):"></a>写依赖关系-<b>AXI3</b>（Write transaction dependencies):</h4><pre><code class="hljs">- 主设备在使能VALID信号后才能等待READY信号的使能
 - 从设备的READY信号可以等VALID信号使能后再使能也可以先使能等待VALID使能
 - 从设备必须等WVALID &amp; WREADY才能使能BAVALID信号
 - 从设备必须等待WLAST有效才能使能BAVLID，写响应必须发送在一次写事务中的最后一次数据传输后
 - 从设备必须在使能BVALID后使能BREADY
 </code></pre>
-<p><img src="/../img/AXI-learning/depend_w.png" srcset="/img/loading.gif" lazyload alt="写依赖关系AXI3">            </p>
+<p><img src="/.com//img/AXI-learning/depend_w.png" srcset="/img/loading.gif" lazyload alt="写依赖关系AXI3">            </p>
 <h4 id="写依赖关系-AXI4-x2F-5（Write-transaction-dependencies"><a href="#写依赖关系-AXI4-x2F-5（Write-transaction-dependencies" class="headerlink" title="写依赖关系-AXI4&#x2F;5（Write transaction dependencies):"></a>写依赖关系-<b>AXI4&#x2F;5</b>（Write transaction dependencies):</h4><pre><code class="hljs">根据文档AXI4的写依赖和AXI3中的主设备是完全兼容的，而对于从设备不完全兼容相对于以上的AXI3版依赖，从设备要等待AWVALID,AWREADY,WVALID,WREADY有效后才能使能BAVLID，即AWVALID &amp; AREADY &amp; WVALID &amp; WREADY &amp; WLAST的关系，所以建议尽量使用更严格的AXI4依赖关系具体依赖如下图：
 </code></pre>
-<p><img src="/../img/AXI-learning/AXI4_depend_w.png" srcset="/img/loading.gif" lazyload alt="写依赖关系AXI4"></p>
+<p><img src="/.com//img/AXI-learning/AXI4_depend_w.png" srcset="/img/loading.gif" lazyload alt="写依赖关系AXI4"></p>
 <ul>
 <li><h2 id="一次传输的完整过程"><a href="#一次传输的完整过程" class="headerlink" title="一次传输的完整过程"></a><b>一次传输的完整过程</b></h2><p>  以下通过单数据和多数据的例子介绍写传输过程和读传输过程：<br></p>
 <h3 id="单个数据的读传输过程"><a href="#单个数据的读传输过程" class="headerlink" title=" 单个数据的读传输过程"></a><b> 单个数据的读传输过程</b></h3><ul>
-<li><p>首先是读地址通道进行握手过程<br>  <img src="/../img/AXI-learning/handshake_AR.png" srcset="/img/loading.gif" lazyload alt="读地址握手">  </p>
+<li><p>首先是读地址通道进行握手过程<br>  <img src="/.com//img/AXI-learning/handshake_AR.png" srcset="/img/loading.gif" lazyload alt="读地址握手">  </p>
 <pre><code class="hljs">     主设备在准备好读地址后在第二个时钟周期把读地址信息和ARVALID信号(使能）同时传输给从设备，在下个周期（第三个周期）从设备使能ARREADY表明准备好接收地址信息，最后在下个周期（第四个周期）完成握手
 </code></pre>
 </li>
-<li><p>然后是读数据通道进行握手过程<br>  <img src="/../img/AXI-learning/handshake_R.png" srcset="/img/loading.gif" lazyload alt="读数据握手"></p>
+<li><p>然后是读数据通道进行握手过程<br>  <img src="/.com//img/AXI-learning/handshake_R.png" srcset="/img/loading.gif" lazyload alt="读数据握手"></p>
 <pre><code class="hljs">     在第n个时钟周期，主设备使能RREADY表明在等待接收数据，然后从设备把数据准备好在第n+2个周期时送出数据，在这种单一数据传输时表示整个数据传输完成所以把RLAT使能拉高，同时从机再用RRESP表明这次读传输的成功或失败，最后同时使能RVALID，在下个周期上升沿即第n+3个周期上升沿完成握手
 </code></pre>
 </li>
 </ul>
 <h3 id="单个数据的写传输过程"><a href="#单个数据的写传输过程" class="headerlink" title=" 单个数据的写传输过程"></a><b> 单个数据的写传输过程</b></h3><ul>
-<li><p>首先是写地址通道进行握手过程<br>  <img src="/../img/AXI-learning/handshake_AW.png" srcset="/img/loading.gif" lazyload alt="写地址握手"></p>
+<li><p>首先是写地址通道进行握手过程<br>  <img src="/.com//img/AXI-learning/handshake_AW.png" srcset="/img/loading.gif" lazyload alt="写地址握手"></p>
 <pre><code class="hljs">     主设备把写地址准备好并在第二个时钟周期使能AWVALID有效信号，从设备在第三个周期把AWREADY使能表明当前能够接收主设备的地址信息，等到下一个周期时钟上升沿即第四周期上升沿完成握手
 </code></pre>
 </li>
-<li><p>然后进行写数据通道的握手过程<br>  <img src="/../img/AXI-learning/handshake_W.png" srcset="/img/loading.gif" lazyload alt="写数据握手"></p>
+<li><p>然后进行写数据通道的握手过程<br>  <img src="/.com//img/AXI-learning/handshake_W.png" srcset="/img/loading.gif" lazyload alt="写数据握手"></p>
 <pre><code class="hljs">     从设备在第n个时钟周期时使能WREADY后等待写数据WDATA的到来，主设备把数据准备好缓存准备传输并在第n+2个时钟周期使能WVALID，等到第n+3个周期的上升沿达成握手把数据传到从设备
 </code></pre>
 </li>
-<li><p>最后进行写响应通道的握手过程<br>  <img src="/../img/AXI-learning/handshake_B.png" srcset="/img/loading.gif" lazyload alt="写响应握手"></p>
+<li><p>最后进行写响应通道的握手过程<br>  <img src="/.com//img/AXI-learning/handshake_B.png" srcset="/img/loading.gif" lazyload alt="写响应握手"></p>
 <pre><code class="hljs">     当写数据完成时的同时使能BREADY即WLAST使能后的下个上升沿，然后从设备使能BRESP表明当次传输的成功或失败同时使能BVALID，同样是在第n+3个周期的上升沿完成握手
 </code></pre>
 </li>
 </ul>
 <h3 id="多个数据的读传输过程"><a href="#多个数据的读传输过程" class="headerlink" title=" 多个数据的读传输过程"></a><b> 多个数据的读传输过程</b></h3><ul>
-<li><p>The AXI protocol also allows a read burst of multiple data transfer in the same transaction（AXI协议也允许一个多数据的读突发–不知道翻译的对不对）<br>  <img src="/../img/AXI-learning/handshake_mul_r.png" srcset="/img/loading.gif" lazyload alt="多数据读"></p>
+<li><p>The AXI protocol also allows a read burst of multiple data transfer in the same transaction（AXI协议也允许一个多数据的读突发–不知道翻译的对不对）<br>  <img src="/.com//img/AXI-learning/handshake_mul_r.png" srcset="/img/loading.gif" lazyload alt="多数据读"></p>
 <pre><code class="hljs">     和单个数据一样也是先通过读地址通道传输单个地址和AVALID控制信号，从图里可以看出读地址通道AR地址传输了三个周期，所以在读数据通道R里一共从从设备传输了三个数据到主设备，到了读数据通道R时，当等到RVALID和RREADY握手时从设备把数据传输到主设备，同时拉高RRESP表示传输的成功与否，注意的是这里的RLAST信号是在第三个数据传输时才拉高即和之前的依赖关系说的一样RLAST是表示最后一个数据传输完成的信号代表本次所有传输完成。
      注：读传输过程中的RRESP用来表明读操作的状态，于写传输过程中的写响应通道的功能有类似，同时当在一次传输中存在错误时也要继续进行完完整的传输，不存在突出中途终止的情况。
 </code></pre>
 </li>
 </ul>
 <h3 id="多个数据的写传输过程"><a href="#多个数据的写传输过程" class="headerlink" title=" 多个数据的写传输过程"></a><b> 多个数据的写传输过程</b></h3><ul>
-<li><p>首先是写地址通道进行握手过程<br>  <img src="/../img/AXI-learning/handshake_mul_w.png" srcset="/img/loading.gif" lazyload alt="多数据写"></p>
+<li><p>首先是写地址通道进行握手过程<br>  <img src="/.com//img/AXI-learning/handshake_mul_w.png" srcset="/img/loading.gif" lazyload alt="多数据写"></p>
 <pre><code class="hljs">     和上面读的传输过程类似，因为在AW过程中有三个周期的地址传输，所以W通道总共传输了三个数据，同样也存在一个WLAST信号来表示整个传输过程的完成，即可以通过WLAST信号来监视传输过程的状态，当所有的数据都被从设备接收完成后，从设备会使能BRESP信号，一个单一的BRESP代表了一次完整的写突发过程
      注：如果从设备决定任何传输的数据错误，必须等到完整的突发传输完成才能发出信号告知主设备有错误。
 </code></pre>
@@ -403,24 +407,24 @@
 </ul>
 <h2 id="通道信号"><a href="#通道信号" class="headerlink" title="通道信号"></a><b>通道信号</b></h2><h3 id="下面是官方文档给出的主要的AXI通道的信号"><a href="#下面是官方文档给出的主要的AXI通道的信号" class="headerlink" title="下面是官方文档给出的主要的AXI通道的信号"></a><b>下面是官方文档给出的主要的AXI通道的信号</b></h3><ul>
 <li><p><b>写地址通道信号</b></p>
-<p>  <img src="/../img/AXI-learning/AW_sig.png" srcset="/img/loading.gif" lazyload alt="写地址通道信号"></p>
+<p>  <img src="/.com//img/AXI-learning/AW_sig.png" srcset="/img/loading.gif" lazyload alt="写地址通道信号"></p>
 </li>
 <li><p><b>写数据通道信号</b></p>
-<p>  <img src="/../img/AXI-learning/W_sig.png" srcset="/img/loading.gif" lazyload alt="写数据通道信号"></p>
+<p>  <img src="/.com//img/AXI-learning/W_sig.png" srcset="/img/loading.gif" lazyload alt="写数据通道信号"></p>
 </li>
 <li><p><b>写响应通道信号</b></p>
-<p>  <img src="/../img/AXI-learning/B_sig.png" srcset="/img/loading.gif" lazyload alt="写响应通道信号"></p>
+<p>  <img src="/.com//img/AXI-learning/B_sig.png" srcset="/img/loading.gif" lazyload alt="写响应通道信号"></p>
 </li>
 <li><p><b>读地址通道信号</b></p>
-<p>  <img src="/../img/AXI-learning/AR_sig.png" srcset="/img/loading.gif" lazyload alt="读地址通道信号"><br>  <img src="/../img/AXI-learning/AR_sig2.png" srcset="/img/loading.gif" lazyload></p>
+<p>  <img src="/.com//img/AXI-learning/AR_sig.png" srcset="/img/loading.gif" lazyload alt="读地址通道信号"><br>  <img src="/.com//img/AXI-learning/AR_sig2.png" srcset="/img/loading.gif" lazyload></p>
 </li>
 <li><p><b>读数据通道信号</b></p>
-<p><img src="/../img/AXI-learning/R_sig.png" srcset="/img/loading.gif" lazyload alt="读数据通道"></p>
+<p><img src="/.com//img/AXI-learning/R_sig.png" srcset="/img/loading.gif" lazyload alt="读数据通道"></p>
 </li>
 </ul>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a><b>小结</b></h2><pre><code class="hljs">主要跟着文档学习了关系AXI总线协议的基本知识，五个传输通道即对应的重要信号和传输过程，下一个总结将尝试独自写AXI读写过程的RTL代码，并根据“一生一芯“项目的要求完成相应部分
 </code></pre>
-<h3 id="日常推歌"><a href="#日常推歌" class="headerlink" title="日常推歌"></a>日常推歌</h3><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=550 height=86 src="//music.163.com/outchain/player?type=2&id=1876179147&auto=1&height=66"></iframe>
+<h3 id="日常推歌"><a href="#日常推歌" class="headerlink" title="日常推歌"></a>日常推歌</h3><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="550" height="86" src="//music.163.com/outchain/player?type=2&id=1876179147&auto=1&height=66"></iframe>
                 
               </div>
             
@@ -585,6 +589,12 @@
     
 
     
+      <div class="col-lg-7 mx-auto nopadding-x-md">
+        <div class="container custom mx-auto">
+           <!--aplayer--> <div id="aplayer">sssss</div> 
+        </div>
+      </div>
+    
   </main>
 
   <footer>
@@ -715,6 +725,11 @@
   <script  src="/js/local-search.js" ></script>
 
 
+
+
+  
+<script src="/js/useaplayer.js"></script>
+<script src="/js/APlayer/dist/APlayer.min.js"></script>
 
 
 
