@@ -4,44 +4,6 @@
   
   
   <entry>
-    <title>博客音乐播放器配置</title>
-    <link href="/2022/11/15/blog-music/"/>
-    <url>/2022/11/15/blog-music/</url>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p> 整个音乐播放器使博客炫酷点！</p><span id="more"></span>        <div id="aplayer-QyHrJRvB" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;"></div>  <script>  var options = {"narrow":true,"autoplay":true,"showlrc":3,"mode":"random","mutex":true,"theme":"#e6d0b2","preload":"metadata","listmaxheight":"500px","music":[{"title":"阳光宅男","author":"周杰伦","url":"/2022/11/15/blog-music/阳光宅男-周杰伦.mp3","pic":"/2022/11/15/blog-music/3.jpg","lrc":"阳光宅男.lrc"},{"title":"爷爷泡的茶","author":"周杰伦","url":"/2022/11/15/blog-music/爷爷泡的茶-周杰伦.mp3","pic":"/2022/11/15/blog-music/3.jpg","lrc":"爷爷泡的茶.lrc"}]};  options.element = document.getElementById("aplayer-QyHrJRvB");  var ap = new APlayer(options);    window.aplayers || (window.aplayers = []);  window.aplayers.push(ap);  </script>]]></content>
-    
-    
-    <categories>
-      
-      <category>博客配置</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>博客配置</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>test</title>
-    <link href="/2022/11/15/test/"/>
-    <url>/2022/11/15/test/</url>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>C语言指针学习（入门版）</title>
     <link href="/2022/11/15/pointer/"/>
     <url>/2022/11/15/pointer/</url>
@@ -176,11 +138,11 @@
   
   
   <entry>
-    <title>first blog</title>
+    <title>博客开启</title>
     <link href="/2022/07/25/post/"/>
     <url>/2022/07/25/post/</url>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>这是个兼容作为歌单和简历及废话的小破博客</p><span id="more"></span><h1 id="第一篇博客发个疯"><a href="#第一篇博客发个疯" class="headerlink" title="第一篇博客发个疯"></a>第一篇博客发个疯</h1><p>立个flag，一个月至少更新一篇博客（手动狗头）</p><h3 id="放个歌单激励一下自己"><a href="#放个歌单激励一下自己" class="headerlink" title="放个歌单激励一下自己"></a>放个歌单激励一下自己</h3><script>console.error("Error: [hexo-tag-aplayer] Unrecognized tag argument(2): https://link.zhihu.com/?target=http%3A//home.ustc.edu.cn/~mmmwhy/%25d6%25dc%25bd%25dc%25c2%25d7%2520-%2520%25cb%25fd%25b5%25c4%25bd%25de%25c3%25ab.mp3");</script>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><blockquote></blockquote><span id="more"></span><h1 id="第一篇博客发个疯"><a href="#第一篇博客发个疯" class="headerlink" title="第一篇博客发个疯"></a>第一篇博客发个疯</h1><p>每天都要记录下，算是监督自己把</p>]]></content>
     
     
     <categories>
