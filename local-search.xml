@@ -8,7 +8,7 @@
     <link href="/2022/11/17/ic-base/"/>
     <url>/2022/11/17/ic-base/</url>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>这篇博客记录一下关于AMBA总线里axi总线的学习及控制器代码的撰写</p><span id="more"></span><h2 id="axi简介"><a href="#axi简介" class="headerlink" title="axi简介"></a>axi简介</h2><p>AXI总线协议是AMBA总线协议里的一种，支持用于管理器和从属组件之间通信的高性能、高频系统设计，具有一下特点 适用于高带宽和低延迟设计。提供高频操作，无需使用复杂的电桥。该协议满足各种组件的接口要求。适用于具有高初始访问延迟的内存控制器。提供互连架构实施的灵活性。它向后兼容AHB 和APB 接口。包括一个子集AXI-lite(下文也会介绍)</p><h2 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h2><p>AXI协议定义了5个独立的事务通道，分别为</p><ol><li>读地址AR</li><li>读数据R</li><li>写地址AW</li><li>写数据W</li><li>写响应B<br>其中地址通道承载传输的数据的性质的控制信息。数据在主机和从机之间使用以下读写两种方式传输：<br><img src="/.com//11/17/ic-base/axi_trans.png" alt="Alt text"></li></ol>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>这篇博客记录一下关于AMBA总线里axi总线的学习及控制器代码的撰写</p><span id="more"></span><h2 id="axi简介"><a href="#axi简介" class="headerlink" title="axi简介"></a>axi简介</h2><p>AXI总线协议是AMBA总线协议里的一种，支持用于管理器和从属组件之间通信的高性能、高频系统设计，具有一下特点 适用于高带宽和低延迟设计。提供高频操作，无需使用复杂的电桥。该协议满足各种组件的接口要求。适用于具有高初始访问延迟的内存控制器。提供互连架构实施的灵活性。它向后兼容AHB 和APB 接口。包括一个子集AXI-lite(下文也会介绍)</p><h2 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h2><p>AXI协议定义了5个独立的事务通道，分别为</p><ol><li>读地址AR</li><li>读数据R</li><li>写地址AW</li><li>写数据W</li><li>写响应B<br>其中地址通道承载传输的数据的性质的控制信息。数据在主机和从机之间使用以下读写两种方式传输：</li></ol><p><img src="/.com//AXI-learning/AMBA.png"></p>]]></content>
     
     
     <categories>
@@ -24,9 +24,9 @@
     
     <tags>
       
-      <tag>代码系列</tag>
-      
       <tag>ic基础</tag>
+      
+      <tag>代码系列</tag>
       
     </tags>
     
@@ -82,9 +82,9 @@
     
     <tags>
       
-      <tag>C语言</tag>
-      
       <tag>代码系列</tag>
+      
+      <tag>C语言</tag>
       
     </tags>
     
