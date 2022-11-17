@@ -16,33 +16,21 @@
   <meta name="author" content="林杰弘">
   <meta name="keywords" content="">
   
-    <meta name="description" content="本篇文章将根据”一生一芯“项目的要求一步一步实现AXI读写过程的RTL（无突发传输的），并进行测试。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="axi总线学习笔记（二）axi总线读RTL实现">
-<meta property="og:url" content="http://example.com/2022/08/28/axi2/index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="分类 - 前端">
+<meta property="og:url" content="http://example.com/categories/ic/%E5%89%8D%E7%AB%AF/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="本篇文章将根据”一生一芯“项目的要求一步一步实现AXI读写过程的RTL（无突发传输的），并进行测试。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/banner/4.jpg">
-<meta property="article:published_time" content="2022-08-28T07:34:48.000Z">
-<meta property="article:modified_time" content="2022-11-14T07:10:22.014Z">
 <meta property="article:author" content="林杰弘">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/banner/4.jpg">
   
   
   
-  <title>axi总线学习笔记（二）axi总线读RTL实现 - blog</title>
+  <title>分类 - 前端 - blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -96,7 +84,7 @@
   <header>
     
 
-<div class="header-inner" style="height: 70vh;">
+<div class="header-inner" style="height: 60vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -195,55 +183,15 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/banner/19.jpg') no-repeat center center; background-size: cover;">
+     style="background: url('/img/banner/17.jpg') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="axi总线学习笔记（二）axi总线读RTL实现"></span>
+            <span id="subtitle" data-typed-text="分类 - 前端"></span>
           
         </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-08-28 15:34" pubdate>
-          2022年8月28日 下午
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          893 字
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          8 分钟
-        
-      </span>
-    
-
-    
-    
-  </div>
-
 
         
       </div>
@@ -262,155 +210,40 @@
 
   <main>
     
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-
-    </div>
-
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">axi总线学习笔记（二）axi总线读RTL实现</h1>
-            
-            
-              <div class="markdown-body">
+      <div class="container nopadding-x-md">
+        <div id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
                 
-                <pre><code class="hljs">本篇文章将根据”一生一芯“项目的要求一步一步实现AXI读写过程的RTL（无突发传输的），并进行测试。
-</code></pre>
-<span id="more"></span>
-<h1 id="实现总线读写"><a href="#实现总线读写" class="headerlink" title="实现总线读写"></a><b>实现总线读写</b></h1><h2 id="实现axi-ctrl的总线读写"><a href="#实现axi-ctrl的总线读写" class="headerlink" title="实现axi_ctrl的总线读写"></a><b>实现axi_ctrl的总线读写</b></h2><ul>
-<li><h3 id="输入输出信号"><a href="#输入输出信号" class="headerlink" title=" 输入输出信号"></a><b> 输入输出信号</b></h3><p>  根据上章文档里给出的通道信号我们可以将其确定下来，部分信号如下图，其中我把信号来源和输入输出分开了，其中前缀m代表是主设备发出的，而s代表是从设备发出的，后缀i代表是输入，o代表是输出，其余四个通道信号也是类似。</p>
-<pre><code class="hljs">  //master
-  output  m_axi_aw_id_o,
-  output  m_axi_aw_valid_o,
-  output  m_axi_aw_addr_o,
-  output  m_axi_aw_len_o,
-  output  m_axi_aw_size_o,
-  output  m_axi_aw_burst_o,   
-  input   m_axi_aw_ready_i,
 
-  //slave 
-  input   s_axi_aw_id_i,
-  input   s_axi_aw_valid_i,
-  input   s_axi_aw_addr_i,
-  input   s_axi_aw_len_i,
-  input   s_axi_aw_size_i,
-  input   s_axi_aw_burst_i,
-  output  s_axi_aw_reay_o,
-</code></pre>
-</li>
-<li><h3 id="中间信号"><a href="#中间信号" class="headerlink" title=" 中间信号"></a><b> 中间信号</b></h3><p>  中间信号我们先考虑握手信号和有依赖关系的信号，具体如下</p>
-<pre><code class="hljs">  //handshake
-  wire  aw_hs   =   axi_aw_ready &amp;  axi_aw_valid;
-  wire  w_hs    =   axi_w_ready  &amp;  axi_w_valid;
-  wire  b_hs    =   axi_b_ready  &amp;  axi_b_valid;
-  wire  ar_hs   =   axi_ar_ready  &amp;  axi_ar_valid;
-  wire  r_hs    =   axi_r_ready  &amp;  axi_r_valid;
-
-  //done
-  wire  w_done  = w_hs  &amp;   axi_w_last; 
-  wire  r_done  = r_hs  &amp;&amp;  axi_r_last; 
-</code></pre>
-<p>  其中w_done根据官方文档的依赖关系我们知道一次写完成依赖于写数据通道的完成，而代表一次完成写数据的完成又是由w_last信号代替的<br>  &#x2F;&#x2F;未完待续，晚上继续写</p>
-</li>
-</ul>
-
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
+<div class="list-group">
+  <p class="h4">共计 1 篇文章</p>
+  <hr>
   
+  
+    
+      
+      <p class="h5">2022</p>
+    
+    <a href="/2022/11/17/ic-base/" class="list-group-item list-group-item-action">
+      <time>11-17</time>
+      <div class="list-group-item-title">ic-协议系列(1)</div>
+    </a>
   
 </div>
 
 
-              
 
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2022/11/13/hexo/" title="hexo博客部署&amp;markdown简单语法">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">hexo博客部署&amp;markdown简单语法</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2022/08/17/axi/" title="axi总线学习笔记（一）基本知识介绍">
-                        <span class="hidden-mobile">axi总线学习笔记（一）基本知识介绍</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
+
+
+              </div>
             </div>
-
-            
-          </article>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
     
 
     
@@ -518,99 +351,6 @@
 
 
 
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
-
-
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/js/local-search.js" ></script>
 
