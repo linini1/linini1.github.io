@@ -4,18 +4,20 @@
   
   
   <entry>
-    <title>ic-协议系列(1)</title>
+    <title>ic-协议系列(1)-axi总线</title>
     <link href="/2022/11/17/ic-base/"/>
     <url>/2022/11/17/ic-base/</url>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>这篇博客记录一下关于AMBA总线里axi总线的学习及控制器代码的撰写</p><span id="more"></span><h2 id="axi简介"><a href="#axi简介" class="headerlink" title="axi简介"></a>axi简介</h2><p>AXI总线协议是AMBA总线协议里的一种，支持用于管理器和从属组件之间通信的高性能、高频系统设计，具有一下特点 适用于高带宽和低延迟设计。提供高频操作，无需使用复杂的电桥。该协议满足各种组件的接口要求。适用于具有高初始访问延迟的内存控制器。提供互连架构实施的灵活性。它向后兼容AHB 和APB 接口。包括一个子集AXI-lite(下文也会介绍)</p><h2 id="基本结构"><a href="#基本结构" class="headerlink" title="基本结构"></a>基本结构</h2><p>AXI协议定义了5个独立的事务通道，分别为</p><ol><li>读地址AR</li><li>读数据R</li><li>写地址AW</li><li>写数据W</li><li>写响应B<br>其中地址通道承载传输的数据的性质的控制信息。数据在主机和从机之间使用以下读写两种方式传输：<br><img src="/.com//11/17/ic-base/axi_trans.png" alt="Alt text"></li></ol>]]></content>
     
     
     <categories>
       
-      <category>ic</category>
+      <category>知识总结</category>
       
-      <category>前端</category>
+      <category>总线协议</category>
+      
+      <category>AMBA总线</category>
       
     </categories>
     
@@ -42,9 +44,9 @@
     
     <categories>
       
-      <category>C语言</category>
+      <category>知识总结</category>
       
-      <category>C语言基础</category>
+      <category>C语言</category>
       
     </categories>
     
@@ -71,9 +73,9 @@
     
     <categories>
       
-      <category>C语言</category>
+      <category>知识总结</category>
       
-      <category>代码系列</category>
+      <category>C语言</category>
       
     </categories>
     
@@ -100,9 +102,11 @@
     
     <categories>
       
+      <category>项目系列</category>
+      
       <category>ysyx</category>
       
-      <category>PA系列</category>
+      <category>PA</category>
       
     </categories>
     
@@ -124,12 +128,14 @@
     <link href="/2022/11/13/hexo/"/>
     <url>/2022/11/13/hexo/</url>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p> Markdown 语法的目标是：成为一种适用于网络的书写语言。 因此，Markdown是兼容Html，HTML 是一种发布的格式，Markdown 是一种书写的格式。就这样，Markdown 的格式语法只涵盖纯文本可以涵盖的范围。不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。不需要额外标注这是 HTML 或是 Markdown；只要直接加标签就可以了。写一个Markdown文档，可以将直接使用Markdown语法和Html的标签混合进行使用，因为最后都会转换成Html，但要注意的是，在 HTML 区块标签间的 Markdown 格式语法将不会被处理。</p><h2 id="常用基本语法"><a href="#常用基本语法" class="headerlink" title="常用基本语法"></a>常用基本语法</h2><p> 只总结了一些觉得自己常用的上的，不考虑美观</p><pre><code class="hljs">1.标题：常用类ATX形式行首插入1到6个#对应与1到6阶标题，注#后面要有一个空格  2.字体：Markdown 使用星号（*）和底线（_）作为标记强调字词的符号，你可以随便用你喜欢的样式，唯一的限制是，你用什么符号开启标签，就要用什么符号结束。      3.分割线：可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。     4.引用： 在引用的文字前加 &gt; 即可。5.列表： Markdown 支持有序列表和无序列表。无序列表使用星号、加号或是减号作为列表标记。有序列表则使用数字接着一个英文句点作为标记。列表可以嵌套，上一级和下一级之间敲三个空格即可6.代码：Markdown中加入代码块有两种方式： 第一种，只要简单地缩进 4 个空格或是 1 个制表符就可以，第二种单行代码：代码之间分别用一个反引号包起来即可；</code></pre><h3 id="效果例子"><a href="#效果例子" class="headerlink" title="效果例子"></a>效果例子</h3><ol><li><p>###空格head</p><h3 id="head"><a href="#head" class="headerlink" title="head"></a>head</h3></li><li><p><strong>粗体</strong>（字两边各两个*）</p></li><li><p>三个星</p><hr></li><li><p>引用，开头有个&gt;符号</p><blockquote><p>引用</p></blockquote></li><li><p>列表(无序)</p><ul><li>一 - 二</li></ul></li><li><p>代码块<br><code>#include ....</code></p></li></ol><h2 id="hexo常见命令"><a href="#hexo常见命令" class="headerlink" title="hexo常见命令"></a>hexo常见命令</h2><pre><code class="hljs">hexo g  //产生htmlhexo c  //清除hexo s  //本地部署hexo d  //部署hexo n &lt;title&gt; //创建新文章</code></pre><h3 id="文章内常用表情"><a href="#文章内常用表情" class="headerlink" title="文章内常用表情"></a>文章内常用表情</h3><pre><code class="hljs">categories：- 类别名字tag:标签名字（可多个）date:日期时间title:标题</code></pre>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>简单记录一下markdown语法的一些基本用法</p><span id="more"></span><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p> Markdown 语法的目标是：成为一种适用于网络的书写语言。 因此，Markdown是兼容Html，HTML 是一种发布的格式，Markdown 是一种书写的格式。就这样，Markdown 的格式语法只涵盖纯文本可以涵盖的范围。不在 Markdown 涵盖范围之内的标签，都可以直接在文档里面用 HTML 撰写。不需要额外标注这是 HTML 或是 Markdown；只要直接加标签就可以了。写一个Markdown文档，可以将直接使用Markdown语法和Html的标签混合进行使用，因为最后都会转换成Html，但要注意的是，在 HTML 区块标签间的 Markdown 格式语法将不会被处理。</p><h2 id="常用基本语法"><a href="#常用基本语法" class="headerlink" title="常用基本语法"></a>常用基本语法</h2><p> 只总结了一些觉得自己常用的上的，不考虑美观</p><pre><code class="hljs">1.标题：常用类ATX形式行首插入1到6个#对应与1到6阶标题，注#后面要有一个空格  2.字体：Markdown 使用星号（*）和底线（_）作为标记强调字词的符号，你可以随便用你喜欢的样式，唯一的限制是，你用什么符号开启标签，就要用什么符号结束。      3.分割线：可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。     4.引用： 在引用的文字前加 &gt; 即可。5.列表： Markdown 支持有序列表和无序列表。无序列表使用星号、加号或是减号作为列表标记。有序列表则使用数字接着一个英文句点作为标记。列表可以嵌套，上一级和下一级之间敲三个空格即可6.代码：Markdown中加入代码块有两种方式： 第一种，只要简单地缩进 4 个空格或是 1 个制表符就可以，第二种单行代码：代码之间分别用一个反引号包起来即可；</code></pre><h3 id="效果例子"><a href="#效果例子" class="headerlink" title="效果例子"></a>效果例子</h3><ol><li><p>###空格head</p><h3 id="head"><a href="#head" class="headerlink" title="head"></a>head</h3></li><li><p><strong>粗体</strong>（字两边各两个*）</p></li><li><p>三个星</p><hr></li><li><p>引用，开头有个&gt;符号</p><blockquote><p>引用</p></blockquote></li><li><p>列表(无序)</p><ul><li>一 - 二</li></ul></li><li><p>代码块<br><code>#include ....</code></p></li></ol><h2 id="hexo常见命令"><a href="#hexo常见命令" class="headerlink" title="hexo常见命令"></a>hexo常见命令</h2><pre><code class="hljs">hexo g  //产生htmlhexo c  //清除hexo s  //本地部署hexo d  //部署hexo n &lt;title&gt; //创建新文章</code></pre><h3 id="文章内常用表情"><a href="#文章内常用表情" class="headerlink" title="文章内常用表情"></a>文章内常用表情</h3><pre><code class="hljs">categories：- 类别名字tag:标签名字（可多个）date:日期时间title:标题</code></pre>]]></content>
     
     
     <categories>
       
-      <category>hexo博客</category>
+      <category>知识总结</category>
+      
+      <category>markdown</category>
       
     </categories>
     
@@ -151,7 +157,7 @@
     <link href="/2022/07/25/post/"/>
     <url>/2022/07/25/post/</url>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><blockquote></blockquote><span id="more"></span><h1 id="第一篇博客发个疯"><a href="#第一篇博客发个疯" class="headerlink" title="第一篇博客发个疯"></a>第一篇博客发个疯</h1><p>每天都要记录下，算是监督自己把</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><p>好记性不如烂笔头，记录下来自己的学习过程和一些生活趣事！</p><span id="more"></span><h1 id="第一篇博客发个疯"><a href="#第一篇博客发个疯" class="headerlink" title="第一篇博客发个疯"></a>第一篇博客发个疯</h1><p>每天都要记录下，算是监督自己把</p>]]></content>
     
     
     <categories>
